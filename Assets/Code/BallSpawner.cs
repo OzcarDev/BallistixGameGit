@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject ball;
+    
     [SerializeField] private float ballsSpeed;
     [SerializeField] private float spawnFrecuency;
+    [SerializeField] private float timeToStartSpawn;
+   
 
-    private void OnEnable()
+    private void Start()
     {
-        InvokeRepeating("Spawnballs", 1, spawnFrecuency);
+        InvokeRepeating("Spawnballs", timeToStartSpawn, spawnFrecuency);
     }
     private void Spawnballs()
     {
-        Rigidbody actualBall = Instantiate(ball,transform.position,transform.rotation).GetComponent<Rigidbody>();
-        actualBall.velocity = new Vector3(0,0,ballsSpeed);
+        Rigidbody actualBall = BallManager.Instance.BallsPool.Get().gameObject.GetComponent<Rigidbody>();
+        actualBall.transform.position = gameObject.transform.position;
+        actualBall.transform.rotation = gameObject.transform.rotation;
+        actualBall.AddForce(transform.forward * ballsSpeed, ForceMode.Impulse);
     }
+
+  
 }

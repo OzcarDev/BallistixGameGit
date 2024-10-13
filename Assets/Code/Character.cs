@@ -2,13 +2,11 @@ using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Character : MonoBehaviour
 {
     [SerializeField] private float speed = 5;
     [SerializeField] private float xLimit;
-    [SerializeField] private bool isXMovement;
-
+    [SerializeField] public bool isXMovement;
     public void Movement(float x)
     {
         

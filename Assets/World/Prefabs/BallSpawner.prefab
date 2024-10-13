@@ -45,5 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 2784914591995616629, guid: a2c050181cfd8cc4abf92b2c893139dd, type: 3}
-  ballsSpeed: 1
+  ballsSpeed: 5
   spawnFrecuency: 10
+  timeToStartSpawn: 1
+  startAngle: 0.4
